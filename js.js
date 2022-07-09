@@ -53,7 +53,7 @@ const question = () => {
 const showAnswer = () => {
 	if (animationStart) {
 		let a = Math.floor(Math.random() * answers.length);
-		answer.textContent = answers[a];
+		answer.innerHTML = `<span>Answer:</span>${answers[a]}`;
 	} else {
 		answer.textContent = '';
 	}
