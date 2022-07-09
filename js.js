@@ -27,7 +27,7 @@ const checkMark = () => {
 };
 
 const animationStart = () => {
-	ball.classList.toggle('shake-animation');
+	ball.classList.add('shake-animation');
 
 	if (ask.value == '') {
 		answer.textContent = '';
@@ -43,11 +43,11 @@ const animationStart = () => {
 const question = () => {
 	if (ask.value == '') {
 		error.textContent = 'Ask question';
-		ball.classList.remove('shake-animation');
 	} else {
 		checkMark();
 		error.textContent = '';
 	}
+	ball.classList.remove('shake-animation');
 };
 
 const showAnswer = () => {
@@ -57,6 +57,7 @@ const showAnswer = () => {
 	} else {
 		answer.textContent = '';
 	}
+	ball.classList.remove('shake-animation');
 };
 
 ball.addEventListener('click', animationStart);
