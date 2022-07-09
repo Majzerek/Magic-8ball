@@ -17,7 +17,7 @@ const answers = [
 const checkMark = () => {
 	const re = /\?/g;
 	if (re.test(ask.value)) {
-		setTimeout(showAnswer, 1500);
+		setTimeout(showAnswer, 1000);
 		error.textContent = '';
 	} else {
 		error.textContent =
@@ -31,12 +31,13 @@ const animationStart = () => {
 
 	if (ask.value == '') {
 		answer.textContent = '';
-		question();
+		setTimeout(question, 1000);
 	} else if (ask.value != '') {
-		checkMark();
+		setTimeout(checkMark, 1000);
+
 	} else {
 		error.textContent = '';
-		setTimeout(showAnswer, 1500);
+		
 	}
 };
 
