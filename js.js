@@ -4,66 +4,59 @@ const answer = document.querySelector('.answer');
 const error = document.querySelector('.error');
 
 const answers = [
-	'Nie wiem, ale się dowiem.',
-	'Z całą pewnością moge powiedzieć, że nie mam pojęcia.',
-	'Wierze że tak.',
-	'Kiedyś na pewno',
-	'Raczej nie...',
-	'Pewnie, że tak',
-	'Przemyśle to...',
+	"I don't know, but I'll find out.",
+	'I can definitely say that I have no idea.',
+	'I believe so.',
+	'Some day for sure',
+	"I don't think so...",
+	'Sure',
+	'Think over it...',
+	'Better let it go ',
 ];
 
 const checkMark = () => {
 	const re = /\?/g;
-	if(re.test(ask.value)) {
+	if (re.test(ask.value)) {
 		setTimeout(showAnswer, 1500);
-		error.textContent = ''
-		
+		error.textContent = '';
 	} else {
-		error.textContent = 'Na końcu pytania musi być znak znapytania (?)'
-		ball.classList.remove('shake-animation')
+		error.textContent =
+			'There must be a question mark at the end of the question (?)';
+		ball.classList.remove('shake-animation');
 	}
 };
 
 const animationStart = () => {
 	ball.classList.toggle('shake-animation');
 
-	if(ask.value == '') {
-		answer.textContent = ''
+	if (ask.value == '') {
+		answer.textContent = '';
 		question();
-	}else if (ask.value != ''){
+	} else if (ask.value != '') {
 		checkMark();
-
-	}else  {
-		error.textContent = ''
+	} else {
+		error.textContent = '';
 		setTimeout(showAnswer, 1500);
-		
-		
 	}
-    
 };
 
 const question = () => {
 	if (ask.value == '') {
-		error.textContent = 'Zadaj pytanie';
-		ball.classList.remove('shake-animation')
+		error.textContent = 'Ask question';
+		ball.classList.remove('shake-animation');
 	} else {
-		checkMark()
+		checkMark();
 		error.textContent = '';
-		
 	}
 };
 
 const showAnswer = () => {
 	if (animationStart) {
-	    let a = Math.floor(Math.random() * answers.length)
-         answer.textContent = answers[a]
-		
+		let a = Math.floor(Math.random() * answers.length);
+		answer.textContent = answers[a];
 	} else {
-        answer.textContent = ''
-		
-    }
+		answer.textContent = '';
+	}
 };
-
 
 ball.addEventListener('click', animationStart);
