@@ -59,6 +59,12 @@ const showAnswer = () => {
 		answer.textContent = '';
 	}
 	ball.classList.remove('shake-animation');
+	
 };
-
-ball.addEventListener('click', animationStart);
+const enterCheck = (e) => {
+if (e.key === 'Enter') {
+	animationStart()
+	}
+}
+		ball.addEventListener('click', animationStart);
+		ask.addEventListener('keyup', enterCheck);
